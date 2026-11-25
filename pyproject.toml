@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gronchi-moid2"
+version = "0.1.0"
+description = "MOID and critical points of the Keplerian distance between two confocal ellipses (Gronchi, Baù & Grassi 2023)"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Siegfried Eggl" }]
+keywords = ["MOID", "orbit", "celestial mechanics", "asteroids", "Keplerian distance"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Operating System :: OS Independent",
+]
+dependencies = ["numpy>=1.22"]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "scipy>=1.8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+gronchi_moid = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
